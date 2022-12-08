@@ -10,9 +10,19 @@ class QuizApiImpl(
     private val client: HttpClient
 ): QuizApi {
 
-    override suspend fun getQuestion(): List<Question> {
+    override suspend fun getQuestion(
+        category: String,
+        difficulty: String,
+        limit: String
+    ): List<Question> {
         return try{
-            client.get{}.body()
+            client.get{
+                url {
+                    parameters.append("category", category)
+                    parameters.append("difficulty", difficulty)
+                    parameters.append("limit", limit)
+                }
+            }.body()
         } catch (e: RedirectResponseException) {
             // 3xx - response
             println("Error: ${e.response.status.description}")

@@ -6,7 +6,13 @@ import com.example.quizit.domain.repository.QuizRepository
 
 class QuizRepositoryImpl: QuizRepository {
 
-    override suspend fun getQuestions(): List<Question> {
-        return QuizApi.create().getQuestion()
+    override suspend fun getQuestions(
+        category: String,
+        difficulty: String,
+        limit: String
+    ): List<Question> {
+        return QuizApi.create().getQuestion(
+            category, difficulty, limit
+        )
     }
 }

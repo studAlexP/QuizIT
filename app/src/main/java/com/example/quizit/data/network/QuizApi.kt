@@ -13,7 +13,11 @@ import kotlinx.serialization.json.Json
 
 interface QuizApi {
 
-    suspend fun getQuestion(): List<Question>
+    suspend fun getQuestion(
+        category: String,
+        difficulty: String,
+        limit: String
+    ): List<Question>
 
     companion object {
         fun create(): QuizApi {
