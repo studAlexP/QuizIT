@@ -1,6 +1,4 @@
-package com.example.quizit.screens
-
-
+package com.example.quizit.presentation.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -20,7 +18,6 @@ import androidx.compose.ui.unit.dp
 fun HomeScreen(
 
 ){
-
     Row {
         Column(
             modifier = Modifier
