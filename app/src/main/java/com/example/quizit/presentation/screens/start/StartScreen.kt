@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.quizit.domain.util.Settings
 import com.example.quizit.presentation.navigation.Screen
 import com.example.quizit.ui.theme.AccentGreen
 import com.example.quizit.ui.theme.GreyBG
@@ -33,25 +34,17 @@ fun StartScreen(
                 .align(Alignment.CenterHorizontally)
         )
         Text(
-            text = "5",
+            text = "${Settings.limit} - ${Settings.difficulty}",
             fontWeight = FontWeight.Bold,
             style = MaterialTheme.typography.h4,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
         )
         Text(
-            text = "questions about",
+            text = "questions",
             style = MaterialTheme.typography.h4,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-        )
-        Text(
-            text = "Linux",
-            fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.h4,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-
         )
 
         Row(
