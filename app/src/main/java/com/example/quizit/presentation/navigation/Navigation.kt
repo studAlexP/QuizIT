@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quizit.presentation.screens.categories.CategoriesScreen
 import com.example.quizit.presentation.screens.home.HomeScreen
+import com.example.quizit.presentation.screens.quiz.QuizScreen
 import com.example.quizit.presentation.screens.settings.SettingsScreen
 import com.example.quizit.presentation.screens.start.StartScreen
 
@@ -31,6 +32,12 @@ fun Navigation() {
         composable(route = Screen.CategoriesScreen.route) {
             CategoriesScreen(navController = navController)
         }
+
+        composable(route = Screen.QuizScreen.route) {
+            QuizScreen(navController = navController)
+        }
+
+
 
     }
 }

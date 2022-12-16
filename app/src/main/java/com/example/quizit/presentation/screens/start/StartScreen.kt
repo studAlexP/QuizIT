@@ -56,7 +56,7 @@ fun StartScreen(
 
         {
             OutlinedButton(
-                onClick = { /* do something */ },
+                onClick = { navController.navigate(Screen.QuizScreen.route) },
                 border = BorderStroke(2.dp, AccentGreen),
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = GreyBG,
