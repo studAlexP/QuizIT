@@ -18,38 +18,4 @@ interface QuizApi {
         difficulty: String,
         limit: String
     ): List<Question>
-
-    companion object {
-        fun create(): QuizApi {
-            return QuizApiImpl(
-                client = HttpClient(Android) {
-                    install(Logging) {
-                        level = LogLevel.ALL
-                    }
-
-                    install(ContentNegotiation) {
-                        json(Json {
-                            prettyPrint = true
-                            isLenient = true
-                            ignoreUnknownKeys = true
-                        })
-                    }
-                    install(HttpTimeout) {
-                        requestTimeoutMillis = 15000L
-                        connectTimeoutMillis = 15000L
-                        socketTimeoutMillis = 15000L
-                    }
-
-                    defaultRequest {
-                        url {
-                            protocol = URLProtocol.HTTPS
-                            host = "quizapi.io"
-                            path("api/v1/questions")
-                            parameters.append("apiKey", BuildConfig.API_KEY)
-                        }
-                    }
-                }
-            )
-        }
-    }
 }
