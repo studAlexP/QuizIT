@@ -1,4 +1,4 @@
-package com.example.quizit.presentation.screens.categories
+package com.example.quizit.presentation.widget
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -22,14 +22,15 @@ fun CategoryCard(
    Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxWidth().padding(30.dp, 160.dp)
-    ) {
+    ){
         Card(
             elevation = 10.dp,
             border = BorderStroke(2.dp, AccentGreen),
             shape = RoundedCornerShape(20),
             backgroundColor = GreyBG,
             modifier = Modifier
-                .width(width = 150.dp)
+                .fillMaxWidth()
+                .padding(30.dp,0.dp,30.dp,20.dp)
                 .height(height = 150.dp)
                 .clickable { /*TODO*/ }
                 .animateContentSize(
@@ -46,8 +47,5 @@ fun CategoryCard(
                     //Text --> corresponding text to category
         }
     }
-
-
-
 
 }
