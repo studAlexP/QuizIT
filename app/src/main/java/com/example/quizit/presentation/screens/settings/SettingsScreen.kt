@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.quizit.domain.util.Settings
 import com.example.quizit.presentation.navigation.Screen
 import com.example.quizit.ui.theme.AccentGreen
 import com.example.quizit.ui.theme.GreyBG
@@ -119,10 +120,11 @@ fun SettingsScreen(
 fun QuestionsSlider() {
     var sliderPosition by remember { mutableStateOf(10f) }
 
+    Settings.limit = sliderPosition.toInt().toString()
 
 
     Text(
-        text = sliderPosition.toInt().toString(),
+        text = Settings.limit,
         style = MaterialTheme.typography.h6,
         modifier = Modifier.padding(5.dp, 30.dp, 0.dp, 20.dp)
     )
@@ -150,28 +152,17 @@ fun QuestionsSlider() {
 fun DifficultySlider() {
     var sliderPosition by remember { mutableStateOf(1f) }
 
+    when(sliderPosition.toInt()){
+        1 -> Settings.difficulty = "Easy"
+        2 -> Settings.difficulty = "Medium"
+        3 -> Settings.difficulty = "Hard"
+    }
 
-    if (sliderPosition.toInt() == 1) {
-        Text(
-            text = "Easy",
-            style = MaterialTheme.typography.h6,
-            modifier = Modifier.padding(5.dp, 30.dp, 0.dp, 20.dp)
-        )
-    }
-    if (sliderPosition.toInt() == 2) {
-        Text(
-            text = "Medium",
-            style = MaterialTheme.typography.h6,
-            modifier = Modifier.padding(5.dp, 30.dp, 0.dp, 20.dp)
-        )
-    }
-    if (sliderPosition.toInt() == 3) {
-        Text(
-            text = "Hard",
-            style = MaterialTheme.typography.h6,
-            modifier = Modifier.padding(5.dp, 30.dp, 0.dp, 20.dp)
-        )
-    }
+    Text(
+        text = Settings.difficulty,
+        style = MaterialTheme.typography.h6,
+        modifier = Modifier.padding(5.dp, 30.dp, 0.dp, 20.dp)
+    )
 
     Slider(
         value = sliderPosition,
