@@ -6,7 +6,7 @@ package com.example.quizit.domain.util
 object Settings {
 
     lateinit var name: String
-    lateinit var category: String
-    lateinit var difficulty: String
-    lateinit var  limit: String
+    var category: String = ""
+    var difficulty: String = "Easy"
+    var limit: String = "10"
 }
