@@ -47,7 +47,7 @@ fun CategoryCard(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(105.dp, 60.dp, 30.dp, 20.dp)
+                    .padding(110.dp, 60.dp, 30.dp, 20.dp)
                     .align(CenterVertically),
 
 
@@ -85,12 +85,12 @@ fun CategoryCard(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(100.dp, 60.dp, 30.dp, 20.dp)
+                    .padding(120.dp, 60.dp, 30.dp, 20.dp)
                     .align(CenterVertically),
 
                 ) {
                 Text(
-                    text = "HTML",
+                    text = "SQL",
                     style = MaterialTheme.typography.h5
                 )
             }
@@ -122,11 +122,11 @@ fun CategoryCard(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(80.dp, 55.dp, 50.dp, 40.dp)
+                    .padding(110.dp, 55.dp, 50.dp, 40.dp)
                     .align(CenterVertically),
             ) {
                 Text(
-                    text = "JavaScript",
+                    text = "Code",
                     style = MaterialTheme.typography.h5
                 )
             }
