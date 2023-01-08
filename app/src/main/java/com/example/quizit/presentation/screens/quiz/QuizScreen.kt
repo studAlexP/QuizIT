@@ -25,9 +25,9 @@ fun QuizScreen(
     val viewModel: QuizViewModel = viewModel(
         factory = QuizViewModel.provideQuizViewModelFactory(
             factory = factory,
-            category = "",
+            category = Settings.category,
             difficulty = Settings.difficulty,
-            limit = "10"
+            limit = Settings.limit
         )
     )
 
