@@ -1,6 +1,6 @@
 # QuizIT
 
-QuitIT is an Android app with the main goal of providing helpful information to certain IT topics in a quiz-like manner .
+QuitIT is an Android app with the main goal of providing helpful information to certain IT topics in a quiz-like manner.
 
 ## Getting Started
 These instructions will give you a copy of the project up and running on your local machine for development and testing purposes.
