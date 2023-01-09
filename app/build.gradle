@@ -95,6 +95,9 @@ dependencies {
 
     // Navigation
     implementation "androidx.navigation:navigation-compose:$nav_version"
+
+    //Coil
+    implementation "io.coil-kt:coil-compose:$coil_version"
 }
 
 kapt {
