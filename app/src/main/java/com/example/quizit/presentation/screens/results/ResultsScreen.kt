@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.example.quizit.domain.util.Settings
 import com.example.quizit.presentation.navigation.Screen
 import com.example.quizit.ui.theme.AccentGreen
 import com.example.quizit.ui.theme.GreyBG
@@ -52,7 +53,7 @@ fun ResultsScreen(
         )
 
         Text(
-            text = "Sahani",
+            text = Settings.name,
             fontWeight = FontWeight.Bold,
             style = MaterialTheme.typography.h4,
             modifier = Modifier

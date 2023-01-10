@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.quizit.domain.util.Settings
 import com.example.quizit.presentation.navigation.Screen
 import com.example.quizit.ui.theme.AccentGreen
 import com.example.quizit.ui.theme.GreyBG
@@ -95,6 +96,7 @@ fun NameFieldButton(
         OutlinedButton(
             enabled = buttonEnabled,
             onClick = {
+                Settings.name = textState.value
                 navController.navigate(Screen.SettingsScreen.route)
                 },
             border = BorderStroke(2.dp, AccentGreen),
