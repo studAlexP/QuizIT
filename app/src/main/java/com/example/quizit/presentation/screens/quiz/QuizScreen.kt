@@ -37,7 +37,7 @@ fun QuizScreen(
         LoadingAnimation()
     } else {
         DisplayQuestion(quiz = questions.value!!) {
-            navController.navigate(Screen.StartScreen.route)
+            navController.navigate(Screen.ResultsScreen.route)
         }
     }
 }
