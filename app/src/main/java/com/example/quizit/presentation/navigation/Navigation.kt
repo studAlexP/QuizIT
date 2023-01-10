@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.quizit.presentation.screens.ResultsScreen.ResultsScreen
+import com.example.quizit.presentation.screens.results.ResultsScreen
 import com.example.quizit.presentation.screens.categories.CategoriesScreen
 import com.example.quizit.presentation.screens.home.HomeScreen
 import com.example.quizit.presentation.screens.quiz.QuizScreen
@@ -16,7 +16,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screen.ResultsScreen.route
+        startDestination = Screen.HomeScreen.route
     ) {
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(navController = navController)
