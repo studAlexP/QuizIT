@@ -5,13 +5,11 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.quizit.presentation.navigation.Screen
@@ -33,7 +31,7 @@ fun HomeScreen(
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.h4,
                 modifier = Modifier
-                    .padding(0.dp,50.dp,0.dp,0.dp)
+                    .padding(0.dp, 50.dp, 0.dp, 0.dp)
                     .align(CenterHorizontally)
 
             )
@@ -57,39 +55,24 @@ fun HomeScreen(
            )
         }
         Row{
-            Column {
-                NameField()
+            Row {
+                NameFieldButton(navController = navController)
             }
-            Column(
-                modifier = Modifier
-                .padding(0.dp, 20.dp, 0.dp, 10.dp)) {
-                OutlinedButton(
-                    onClick = { navController.navigate(Screen.SettingsScreen.route) },
-                    border = BorderStroke(2.dp, AccentGreen),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = GreyBG,
-                        contentColor = androidx.compose.ui.graphics.Color.White
-                    ),
-                    shape = RoundedCornerShape(50),
-                    modifier = Modifier
-                        .width(width = 70.dp)
-                        .height(height = 52.dp)
-                ) {
-                    Text(text="Go!")
-                }
-            }
-
-
         }
-
     }
-
 }
 
 @Composable
-fun NameField() {
-    Column(Modifier.padding(16.dp)) {
-        val textState = remember { mutableStateOf(TextFieldValue()) }
+fun NameFieldButton(
+    navController: NavController
+) {
+
+    val textState = remember { mutableStateOf("") }
+    val buttonEnabled by derivedStateOf {
+        textState.value.isNotEmpty()
+    }
+
+    Row(Modifier.padding(16.dp)) {
         TextField(
             value = textState.value,
             onValueChange = { textState.value = it },
@@ -102,6 +85,36 @@ fun NameField() {
                 focusedIndicatorColor = GreyBG,
                 unfocusedIndicatorColor = GreyBG
             ),
+            label = {Text(text = "Name", color = Color.White)}
         )
     }
+
+    Row(
+        modifier = Modifier
+            .padding(0.dp, 20.dp, 0.dp, 10.dp)) {
+        OutlinedButton(
+            enabled = buttonEnabled,
+            onClick = {
+                navController.navigate(Screen.SettingsScreen.route)
+                },
+            border = BorderStroke(2.dp, AccentGreen),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = GreyBG,
+                contentColor = Color.White
+            ),
+            shape = RoundedCornerShape(50),
+            modifier = Modifier
+                .width(width = 70.dp)
+                .height(height = 52.dp)
+        ) {
+            Text(text="Go!")
+        }
+    }
+
+
 }
+
+
+
+
+
