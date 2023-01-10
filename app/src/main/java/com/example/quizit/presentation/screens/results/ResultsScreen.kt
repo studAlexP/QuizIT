@@ -1,4 +1,4 @@
-package com.example.quizit.presentation.screens.ResultsScreen
+package com.example.quizit.presentation.screens.results
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
@@ -60,7 +60,7 @@ fun ResultsScreen(
                 .align(Alignment.CenterHorizontally)
         )
         OutlinedButton(
-            onClick = { navController.navigate(Screen.StartScreen.route) },
+            onClick = { navController.navigate(Screen.SettingsScreen.route) },
             border = BorderStroke(2.dp, AccentGreen),
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = GreyBG,
