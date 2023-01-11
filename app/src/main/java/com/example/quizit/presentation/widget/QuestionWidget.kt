@@ -55,7 +55,7 @@ fun DisplayQuestion(
                     Text(
                         color = Color.White,
                         text = quiz[questionIndex.value].category.toString(),
-                        modifier = Modifier.padding(top = 10.dp)
+                        modifier = Modifier.padding(top = 13.dp)
                     )
                 }
             }
