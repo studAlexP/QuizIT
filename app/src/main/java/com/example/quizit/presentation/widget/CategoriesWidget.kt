@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.CenterVertically
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.quizit.domain.util.Settings
@@ -21,10 +21,11 @@ fun CategoryCard(
     category: String,
     cardClicked: () -> Unit
 ) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
+    Column(
         modifier = Modifier
             .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(50.dp, 20.dp, 50.dp)
     ) {
         Card(
             elevation = 10.dp,
@@ -33,10 +34,9 @@ fun CategoryCard(
             backgroundColor = GreyBG,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp, 10.dp, 20.dp, 10.dp)
                 .height(height = 150.dp)
                 .clickable {
-                    Settings.category = category.lowercase()
+                    Settings.category = category
                     cardClicked()
                 }
                 .animateContentSize(
@@ -47,12 +47,9 @@ fun CategoryCard(
                 )
         ) {
             Box(
+                contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(110.dp, 60.dp, 30.dp, 20.dp)
-                    .align(CenterVertically),
-
-
                 ) {
                 Text(
                     text = category,
