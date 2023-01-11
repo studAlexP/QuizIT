@@ -19,12 +19,16 @@ import com.example.quizit.presentation.widget.CategoryCard
 fun CategoriesScreen(
     navController: NavController
 ){
-    Row {
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+    ){
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-        ){
+        ) {
             Text(
                 text = "Pick a category",
                 fontWeight = FontWeight.Bold,
@@ -34,18 +38,20 @@ fun CategoriesScreen(
                     .align(Alignment.CenterHorizontally)
 
             )
-            CategoryCard("Linux") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("Bash") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("Uncategorized") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("Docker") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("SQL") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("CMS") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("Code") { navController.navigate(Screen.QuizScreen.route)}
-            CategoryCard("DevOps") { navController.navigate(Screen.QuizScreen.route)}
-
         }
 
+        Column(
+            modifier = Modifier
+                .padding(0.dp, 20.dp)
+        ) {
+            CategoryCard("Linux") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("Bash") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("Uncategorized") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("Docker") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("SQL") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("CMS") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("Code") { navController.navigate(Screen.StartScreen.route)}
+            CategoryCard("DevOps") { navController.navigate(Screen.StartScreen.route)}
+        }
     }
-
-
 }
