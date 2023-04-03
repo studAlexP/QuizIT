@@ -41,11 +41,5 @@ fun Navigation() {
         composable(route = Screen.ResultsScreen.route ) {
            ResultsScreen(navController = navController)
         }
-
-
-
-
-
-
     }
 }
